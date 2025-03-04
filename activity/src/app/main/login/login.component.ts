@@ -11,7 +11,6 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  public isLogin: boolean = false;
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -30,13 +29,11 @@ export class LoginComponent {
 
   onLogin() {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.valid);
       const { email, password } = this.loginForm.value;
       if (this.userService.login(email, password)) {
         this.router.navigate(['/main/user-info']);
       } else {
-        console.log('Invalid email or password');
-        this.isLogin = true;
+        alert('Invalid email or password.');
       }
     }
   }
