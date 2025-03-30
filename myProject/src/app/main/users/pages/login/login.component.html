@@ -1,7 +1,7 @@
 <div class="container">
     <form [formGroup]="LoginForm" (ngSubmit)="onLogin()">
         <h3>Login</h3>
-        <p *ngIf="errorMsg" class="error">{{errorMsg}}</p>
+        <label *ngIf="errorMsg" class="error">{{errorMsg}}</label>
         <mat-form-field>
             <mat-label>Username</mat-label>
             <input
